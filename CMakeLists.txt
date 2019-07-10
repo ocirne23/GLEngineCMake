@@ -1,4 +1,6 @@
-cmake_minimum_required (VERSION 3.13)
+cmake_minimum_required (VERSION 3.14)
+
+message(STATUS "CMAKE VERSION: ${CMAKE_VERSION}")
 
 set(CMAKE_GENERATOR "Ninja")
 set(CMAKE_PROJECT_NAME "GLEngine")
