@@ -20,4 +20,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 link_directories("${ROOT_DIR}/out/lib/${OUTPUT_EXT}")
 
+add_subdirectory(Dependencies)
 add_subdirectory(Code)
+
