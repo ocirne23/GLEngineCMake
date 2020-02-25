@@ -1,12 +1,10 @@
 #include "Graphics.h"
 
 #include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_video.h>
 
-owner<IGraphics*> IGraphics::create()
+std::unique_ptr<IGraphics> IGraphics::create()
 {
-	return new Graphics();
+	return std::make_unique<Graphics>();
 }
 
 Graphics::Graphics()

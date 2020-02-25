@@ -11,3 +11,5 @@ set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER Apps)
 target_compile_options(${PROJECT_NAME} PRIVATE ${COMPILE_OPTIONS})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Core Graphics)
+
+register_fastbuild_target(${PROJECT_NAME})

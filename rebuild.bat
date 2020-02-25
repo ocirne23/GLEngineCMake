@@ -1,0 +1,1 @@
+fbuild -clean&& pause

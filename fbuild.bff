@@ -1,0 +1,44 @@
+.WindowsSDKVer      = '10.0.18362.0'
+.MSVCVer            = '14.24.28314'
+.Platform           = 'x64'
+
+.VSBasePath         = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community'
+.WindowsSDKBasePath = 'C:\Program Files (x86)\Windows Kits\10'
+.MSVCPath           = '$VSBasePath$\VC\Tools\MSVC\$MSVCVer$'
+
+Settings
+{
+    .Environment    = { 
+		"PATH=$VSBasePath$\Common7\IDE\",
+		"TMP=C:\Windows\Temp",
+		"INCLUDE=$MSVCPath$\include;$MSVCPath$\ATLMFC\include;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um;$WindowsSDKBasePath$\Include\$WindowsSDKVer$\ucrt;$WindowsSDKBasePath$\Include\$WindowsSDKVer$\shared;$WindowsSDKBasePath$\Include\$WindowsSDKVer$\um;$WindowsSDKBasePath$\Include\$WindowsSDKVer$\winrt;$WindowsSDKBasePath$\Include\$WindowsSDKVer$\cppwinrt",
+		"LIB=$MSVCPath$\lib\$Platform$;$MSVCPath$\ATLMFC\lib\$Platform$;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\$Platform$;$WindowsSDKBasePath$\Lib\$WindowsSDKVer$\ucrt\$Platform$;$WindowsSDKBasePath$\Lib\$WindowsSDKVer$\um\$Platform$",
+		"SystemRoot=C:\Windows" 
+	}
+}
+
+.Compiler           = '$MSVCPath$\bin\Host$Platform$\$Platform$\cl.exe'
+.Linker             = '$MSVCPath$\bin\Host$Platform$\$Platform$\link.exe'
+
+.CompilerOptions    = '"%1"'           // Input
+                    + ' /Fo"%2"'       // Output
+                    + ' /c'            // Compile only
+                    + ' /nologo'       // No compiler spam
+
+.LinkerOptions      = ' /OUT:"%2"'     // Output
+                    + ' "%1"'          // Input
+                    + ' /NOLOGO'       // No linker spam
+
+ObjectList( 'HelloWorld-Lib' )
+{
+    .CompilerInputPath  = 'Code\Apps\GLApp\Private'
+    .CompilerOutputPath = 'test\'
+}
+
+Executable( 'HelloWorld' )
+{
+    .Libraries          = { "HelloWorld-Lib" }
+    .LinkerOutput       = 'test\HelloWorld.exe'
+}
+
+Alias( 'all' ) { .Targets = { 'HelloWorld' } }

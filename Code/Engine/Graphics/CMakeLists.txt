@@ -14,5 +14,3 @@ target_link_libraries(${PROJECT_NAME} PUBLIC Core SDL2-static)
 set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER Engine)
 
 apply_compile_settings(${PROJECT_NAME})
-
-add_subdirectory(GraphicsAPIs)

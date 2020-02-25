@@ -13,3 +13,5 @@ target_include_directories(${PROJECT_NAME} PUBLIC  "${CMAKE_CURRENT_SOURCE_DIR}/
 set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER Engine)
 
 apply_compile_settings(${PROJECT_NAME})
+
+register_fastbuild_target(${PROJECT_NAME})
