@@ -1,6 +1,6 @@
 
 file(GLOB_RECURSE file_list "${CMAKE_CURRENT_SOURCE_DIR}/CMake/*.*")
-list(APPEND file_list "${CMAKE_CURRENT_SOURCE_DIR}/../fbuild.bff")
+list(APPEND file_list "${CMAKE_CURRENT_SOURCE_DIR}/../fbuild-msvc.bff")
 list(APPEND file_list "${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt")
 
 foreach(file ${file_list})

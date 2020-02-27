@@ -1,6 +1,8 @@
 cmake_minimum_required (VERSION 3.14)
 
-message(STATUS "CMAKE VERSION: ${CMAKE_VERSION}")
+message(STATUS "CMAKE_VERSION: ${CMAKE_VERSION}")
+string(TOUPPER ${CMAKE_BUILD_TYPE} CONFIGURATION_TYPE)
+message(STATUS "CONFIGURATION_TYPE: ${CONFIGURATION_TYPE}")
 
 #set(CMAKE_GENERATOR "Ninja")
 set(CMAKE_PROJECT_NAME "GLEngine")
@@ -28,3 +30,5 @@ add_subdirectory(Code)
 add_subdirectory(Tools)
 
 setup_fastbuild()
+
+message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")

@@ -28,17 +28,3 @@ Settings
 .LinkerOptions      = ' /OUT:"%2"'     // Output
                     + ' "%1"'          // Input
                     + ' /NOLOGO'       // No linker spam
-
-ObjectList( 'HelloWorld-Lib' )
-{
-    .CompilerInputPath  = 'Code\Apps\GLApp\Private'
-    .CompilerOutputPath = 'out\'
-}
-
-Executable( 'HelloWorld' )
-{
-    .Libraries          = { "HelloWorld-Lib" }
-    .LinkerOutput       = 'out\HelloWorld.exe'
-}
-
-Alias( 'all' ) { .Targets = { 'HelloWorld' } }

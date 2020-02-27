@@ -40,6 +40,8 @@ function(apply_compile_settings target)
 		target_compile_definitions(${target} INTERFACE ${target}_IMPORTS)
 	endif()
 	target_compile_options(${target} PRIVATE ${COMPILE_OPTIONS})
+    target_compile_definitions(${target} PRIVATE TEST)
+
     group_sources_by_folder(${target})
 endfunction()
 
